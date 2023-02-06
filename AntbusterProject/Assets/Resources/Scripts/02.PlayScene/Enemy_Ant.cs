@@ -10,12 +10,14 @@ public class Enemy_Ant : MonoBehaviour
     public float speed;
     public bool IsCakePickUp = default;
     public bool randomMove = default;
+
+    private bool Is_Die = default;
     public void Start()
     {
         GameObject rootObj = GFunc.GetRootObj("GameObjs");
         targetCakeTransform = GFunc.FindChildObj(rootObj, "CakeObj").transform;
         targetAntTunnelTransform = GFunc.FindChildObj(rootObj, "AntTunnel").transform;
-
+        StartCoroutine(RandMoveTargetMove_Chance());
     }
 
     public void Update()
@@ -26,17 +28,16 @@ public class Enemy_Ant : MonoBehaviour
     // 개미의 움직임을 구현할 함수
     public void Move()
     {
-        if (randomMove)
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPos, speed * Time.deltaTime);
+    }
+
+    IEnumerator RandMoveTargetMove_Chance()
+    {
+        while (true)
         {
-            if (transform.localPosition == targetPos)
-            {
-                randomMove = false;
-            }
-        }
-        else
-        {
+            yield return new WaitForSeconds(0.5f);
             int randNum = Random.Range(0, 101);
-            if ((0 <= randNum && randNum <= 80))
+            if ((0 <= randNum && randNum <= 60))
             {
                 TargetToMove();
             }
@@ -45,9 +46,27 @@ public class Enemy_Ant : MonoBehaviour
                 RandomMove(randNum);
                 randomMove = true;
             }
+            // if (randomMove)
+            // {
+            //     if (transform.localPosition == targetPos)
+            //     {
+            //         randomMove = false;
+            //     }
+            // }
+            // else
+            // {
+            //     int randNum = Random.Range(0, 101);
+            //     if ((0 <= randNum && randNum <= 80))
+            //     {
+            //         TargetToMove();
+            //     }
+            //     else
+            //     {
+            //         RandomMove(randNum);
+            //         randomMove = true;
+            //     }
+            // }
         }
-
-        transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPos, speed * Time.deltaTime);
     }
 
     public void TargetToMove()

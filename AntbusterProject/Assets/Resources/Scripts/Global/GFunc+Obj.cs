@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public static partial class GFunc
 {
-    //! Ư�� ������Ʈ�� �ڽ� ������Ʈ�� ��ġ�ؼ� ã���ִ� �Լ�
     public static GameObject FindChildObj(
         this GameObject targetObj_, string objName_)
     {
@@ -30,8 +29,7 @@ public static partial class GFunc
         }       // loop
 
         return searchResult;
-    }       // FindChildObj()
-
+    }
 
     //! ���� ��Ʈ ������Ʈ�� ��ġ�ؼ� ã���ִ� �Լ�
     public static GameObject GetRootObj(string objName_)

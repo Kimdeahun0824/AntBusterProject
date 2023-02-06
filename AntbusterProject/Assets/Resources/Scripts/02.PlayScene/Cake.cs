@@ -13,7 +13,6 @@ public class Cake : MonoBehaviour
     public void Start()
     {
         cakeObj = transform.GetChild(0).GetComponent<Image>();
-        cakeLife = 5;
         CakeImageSet();
     }
 
