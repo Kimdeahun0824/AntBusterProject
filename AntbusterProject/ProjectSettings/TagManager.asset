@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GameObjsBack
+    uniqueID: 2176529273
+    locked: 0
+  - name: GameObjsMiddle
+    uniqueID: 1653796133
+    locked: 0
+  - name: GameObjsFront
+    uniqueID: 3672180023
+    locked: 0
+  - name: UIObjsBack
+    uniqueID: 2999203945
+    locked: 0
+  - name: UIObjsMiddle
+    uniqueID: 478545349
+    locked: 0
+  - name: UIObjsFront
+    uniqueID: 2724033817
+    locked: 0
