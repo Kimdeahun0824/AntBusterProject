@@ -4,10 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : SingletonBase<GameManager>
 {
+    public int Life = default;
     public new void Awake()
     {
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        init();
+    }
+
+
+    public void init()
+    {
+        Life = 8;
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)

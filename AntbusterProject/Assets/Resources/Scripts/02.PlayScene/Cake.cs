@@ -8,13 +8,14 @@ public class Cake : MonoBehaviour
     public int cakeLife = default;
     private Image cakeObj = default;
     public Sprite[] cakeSprite = default;
+
+
     public void Start()
     {
         cakeObj = transform.GetChild(0).GetComponent<Image>();
         cakeLife = 5;
         CakeImageSet();
     }
-
 
     // Cake의 Sprite를 교체해주는 함수
     public void CakeImageSet()
