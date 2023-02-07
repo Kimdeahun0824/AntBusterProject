@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed;
+    public float damage;
     void Update()
     {
         //transform.localPosition += Vector3.up * speed * Time.deltaTime;

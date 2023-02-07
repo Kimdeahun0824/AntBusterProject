@@ -9,5 +9,11 @@ public static partial class GData
     public const string PLAY_SCENE_NAME = "02.PlayScene";
     public const string ENEMY_ANT_NAME = "Ant_Enemy";
     public const string BULLET_NAME = "Bullet";
+    public enum Turret
+    {
+
+    }
 
 }
+
+

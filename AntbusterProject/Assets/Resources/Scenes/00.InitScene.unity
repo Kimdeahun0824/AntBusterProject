@@ -199,9 +199,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objKeys:
   - Ant_Enemy
+  - Bullet
   objvalues:
   - {fileID: 5487109245334284145, guid: 7902671ef6f02334ba12d657ea9b9e7b, type: 3}
-  objCounts: 06000000
+  - {fileID: 9207617250714831727, guid: 41dc6ea5ffcf5f944921ba98357f093f, type: 3}
+  objCounts: 0600000006000000
 --- !u!4 &307141104
 Transform:
   m_ObjectHideFlags: 0

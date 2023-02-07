@@ -57,7 +57,7 @@ public abstract class SingletonBase<T> : MonoBehaviour where T : SingletonBase<T
     }
     #endregion
 
-    protected void Awake()
+    public void Awake()
     {
         Instance.CreateInstance();
     }
