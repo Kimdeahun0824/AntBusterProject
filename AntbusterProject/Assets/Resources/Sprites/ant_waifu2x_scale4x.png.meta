@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f0c500b0efc44b545be812b27da76fc2
+guid: 7b44d03534f76bf44bdeb65e8e2caaf1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ant_0
+      name: ant_waifu2x_scale4x_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 32
-        height: 32
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 145dd4681efd99d428432bf45454c17f
-      internalID: 819713507
+      spriteID: e8f5ee347921f97498009d6d17fef95d
+      internalID: -595046747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ant_1
+      name: ant_waifu2x_scale4x_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
+        x: 128
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09f44d2d76dbb35428bae705e14f6bee
-      internalID: -347428181
+      spriteID: 4d6e21f43d634d94083cae2e72d5ce14
+      internalID: -1379418232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ant_2
+      name: ant_waifu2x_scale4x_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
+        x: 256
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,50 +173,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97fb366fea9c2c24fb7f20d188771798
-      internalID: -710166408
+      spriteID: e937c99ca7b19df40803f918a4b72754
+      internalID: -1082007530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ant_3
+      name: ant_waifu2x_scale4x_3
       rect:
         serializedVersion: 2
-        x: 3
-        y: 74
-        width: 3
-        height: 20
+        x: 12
+        y: 296
+        width: 12
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1396d3feda4be8468b0eebb14716e57
-      internalID: -1653090936
+      spriteID: 3cce49e3c8d08244cb29555ee26e795a
+      internalID: -21209575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ant_4
+      name: ant_waifu2x_scale4x_4
       rect:
         serializedVersion: 2
-        x: 8
-        y: 74
-        width: 1
-        height: 20
+        x: 28
+        y: 296
+        width: 12
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 363633a4db1b0aa45b729039b8394449
-      internalID: -1903950176
+      spriteID: 82d6d2fa4b5447a4b86e7f665edb5a1e
+      internalID: 512824382
       vertices: []
       indices: 
       edges: []
@@ -232,17 +232,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ant_6: 693738763
-      ant_0: 819713507
-      ant_7: 496876214
-      ant_2: -710166408
-      ant_1: -347428181
-      ant_10: -1235373867
-      ant_5: 1168682637
-      ant_3: -1653090936
-      ant_8: 1947456350
-      ant_9: -757488278
-      ant_4: -1903950176
+      ant_waifu2x_scale4x_5: -1333196430
+      ant_waifu2x_scale4x_4: 512824382
+      ant_waifu2x_scale4x_6: 570249519
+      ant_waifu2x_scale4x_2: -1082007530
+      ant_waifu2x_scale4x_0: -595046747
+      ant_waifu2x_scale4x_1: -1379418232
+      ant_waifu2x_scale4x_3: -21209575
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -21,4 +21,9 @@ public static partial class GFunc
     {
         SceneManager.LoadScene(sceneName_);
     }       // LoadScene()
+
+    public static void sceneLoaded(UnityEngine.Events.UnityAction<Scene, LoadSceneMode> event_)
+    {
+        SceneManager.sceneLoaded += event_;
+    }
 }

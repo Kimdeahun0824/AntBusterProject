@@ -12,6 +12,8 @@ public class Cake : MonoBehaviour
 
     public void Start()
     {
+        GameManager.Instance.cakeAddHandler += CakeAdd;
+        GameManager.Instance.cakeRemoveHandler += CakeRemove;
         cakeObj = transform.GetChild(0).GetComponent<Image>();
         CakeImageSet();
     }

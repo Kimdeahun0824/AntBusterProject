@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 public class GameManager : SingletonBase<GameManager>
 {
+    public delegate void CakeAddDelegate();
+    public event CakeAddDelegate cakeAddHandler = default;
+
+    public delegate void CakeRemoveDelegate();
+    public event CakeRemoveDelegate cakeRemoveHandler = default;
+
     public int Life = default;
     public new void Awake()
     {
         base.Awake();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        GFunc.sceneLoaded(OnSceneLoaded);
         init();
     }
 
@@ -17,7 +23,7 @@ public class GameManager : SingletonBase<GameManager>
         Life = 8;
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
     {
         switch (scene.name)
         {
@@ -34,22 +40,14 @@ public class GameManager : SingletonBase<GameManager>
                 break;
         }
     }
-}
 
-public class test
-{
-    public delegate void TEST<T0, T1>(T0 t1, T1 t2);
-    public static event TEST<string, string> delegateTest;
-    // public delegate void Test(int num);
-    // public static event Test delegateTest;
-
-    public void main()
+    public void PickUpCake()
     {
-        delegateTest += asdf;
+        cakeRemoveHandler();
     }
-    public void asdf(string a, string b)
+    public void CakeAdd()
     {
-        return;
+        cakeAddHandler();
     }
-}
 
+}

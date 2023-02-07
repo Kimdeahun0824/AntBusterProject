@@ -10,13 +10,16 @@ public class Enemy_Ant : MonoBehaviour
     public Transform targetCakeTransform = default;
     public Transform targetAntTunnelTransform = default;
     public Vector3 targetPos = default;
+    private GameObject pickUpCakeObj = default;
+
 
     public bool IsCakePickUp = default;
     public bool randomMove = default;
-
     private bool Is_Die = default;
     public void Start()
     {
+        pickUpCakeObj = transform.GetChild(0).gameObject;
+        pickUpCakeObj.SetActive(false);
         GameObject rootObj = GFunc.GetRootObj("GameObjs");
         targetCakeTransform = GFunc.FindChildObj(rootObj, "CakeObj").transform;
         targetAntTunnelTransform = GFunc.FindChildObj(rootObj, "AntTunnel").transform;
@@ -34,6 +37,7 @@ public class Enemy_Ant : MonoBehaviour
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPos, moveSpeed * Time.deltaTime);
         transform.LookAt2D(targetPos, rotationSpeed);
     }
+    //public void 
 
     IEnumerator RandMoveTargetMove_Chance()
     {
@@ -63,6 +67,7 @@ public class Enemy_Ant : MonoBehaviour
             targetPos = targetAntTunnelTransform.localPosition;
             if (transform.localPosition == targetAntTunnelTransform.localPosition)
             {
+                pickUpCakeObj.SetActive(false);
                 IsCakePickUp = false;
             }
         }
@@ -71,7 +76,9 @@ public class Enemy_Ant : MonoBehaviour
             targetPos = targetCakeTransform.localPosition;
             if (transform.localPosition == targetCakeTransform.localPosition)
             {
+                pickUpCakeObj.SetActive(true);
                 IsCakePickUp = true;
+                GameManager.Instance.PickUpCake();
             }
         }
     }
