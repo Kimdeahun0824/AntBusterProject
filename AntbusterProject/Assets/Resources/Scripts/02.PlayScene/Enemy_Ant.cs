@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Enemy_Ant : MonoBehaviour
 {
-    public int Hp;
+    public int maxHp;
+    public int currentHp;
     public float moveSpeed;
     public float rotationSpeed;
+
+    //private Rigidbody2D myRigidBody = default;
     public Transform targetCakeTransform = default;
     public Transform targetAntTunnelTransform = default;
     public Vector3 targetPos = default;
@@ -18,9 +21,11 @@ public class Enemy_Ant : MonoBehaviour
     private bool Is_Die = default;
     public void Start()
     {
+        //myRigidBody = GetComponent<Rigidbody2D>();
         pickUpCakeObj = transform.GetChild(0).gameObject;
         pickUpCakeObj.SetActive(false);
         GameObject rootObj = GFunc.GetRootObj("GameObjs");
+        rootObj.FindChildObj("PlayGround");
         targetCakeTransform = GFunc.FindChildObj(rootObj, "CakeObj").transform;
         targetAntTunnelTransform = GFunc.FindChildObj(rootObj, "AntTunnel").transform;
         StartCoroutine(RandMoveTargetMove_Chance());
@@ -34,10 +39,15 @@ public class Enemy_Ant : MonoBehaviour
     // 개미의 움직임을 구현할 함수
     public void Move()
     {
+        //myRigidBody.MovePosition(Vector2.MoveTowards(myRigidBody.position, targetPos, moveSpeed * Time.deltaTime));
+        //= Vector3.MoveTowards(myRigidBody.position, targetPos, moveSpeed * Time.deltaTime);
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPos, moveSpeed * Time.deltaTime);
         transform.LookAt2D(targetPos, rotationSpeed);
     }
-    //public void 
+    public void HpBar()
+    {
+
+    }
 
     IEnumerator RandMoveTargetMove_Chance()
     {
@@ -76,9 +86,10 @@ public class Enemy_Ant : MonoBehaviour
             targetPos = targetCakeTransform.localPosition;
             if (transform.localPosition == targetCakeTransform.localPosition)
             {
-                pickUpCakeObj.SetActive(true);
                 IsCakePickUp = true;
+                if (GameManager.Instance.cakeLife <= 0) return;
                 GameManager.Instance.PickUpCake();
+                pickUpCakeObj.SetActive(true);
             }
         }
     }

@@ -28,15 +28,28 @@ public class Cake : MonoBehaviour
     public void CakeAdd()
     {
         if (8 <= cakeLife) return;
+        if (cakeLife == 0)
+        {
+            cakeObj.gameObject.SetActive(true);
+        }
         cakeLife++;
+        GameManager.Instance.cakeLife = cakeLife;
         CakeImageSet();
     }
 
     // Cake를 제거할때의 함수
     public void CakeRemove()
     {
-        if (cakeLife <= 0) return;
+        if (cakeLife == 0) return;
+        if (cakeLife <= 1)
+        {
+            cakeObj.gameObject.SetActive(false);
+            cakeLife--;
+            GameManager.Instance.cakeLife = cakeLife;
+            return;
+        }
         cakeLife--;
+        GameManager.Instance.cakeLife = cakeLife;
         CakeImageSet();
     }
 

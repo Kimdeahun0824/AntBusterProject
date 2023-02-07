@@ -10,8 +10,9 @@ public class GameManager : SingletonBase<GameManager>
     public delegate void CakeRemoveDelegate();
     public event CakeRemoveDelegate cakeRemoveHandler = default;
 
-    public int Life = default;
-    public new void Awake()
+    public int cakeLife = default;
+
+    new void Awake()
     {
         base.Awake();
         GFunc.sceneLoaded(OnSceneLoaded);
@@ -20,7 +21,7 @@ public class GameManager : SingletonBase<GameManager>
 
     public void init()
     {
-        Life = 8;
+        cakeLife = 8;
     }
 
     public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
@@ -49,5 +50,25 @@ public class GameManager : SingletonBase<GameManager>
     {
         cakeAddHandler();
     }
+
+    public void GameStart()
+    {
+        StartCoroutine(EnemySpawn());
+    }
+
+    IEnumerator EnemySpawn()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1.0f);
+            GameObject tempObj = ObjectPoolManager.Instance.ObjPop(GData.ENEMY_ANT_NAME);
+            if (tempObj == null) continue;
+            tempObj.transform.localPosition = new Vector3(20f, -20f, 0f);
+            GFunc.Log($"EnemyTransformLocalPosition : {tempObj.transform.localPosition}");
+            tempObj.SetActive(true);
+
+        }
+    }
+
 
 }
