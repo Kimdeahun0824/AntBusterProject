@@ -161,6 +161,10 @@ public class Enemy_Ant : MonoBehaviour
 
     public void Die()
     {
+        if (pickUpCakeObj.activeSelf == true)
+        {
+            GameManager.Instance.CakeAdd();
+        }
         pickUpCakeObj.SetActive(false);
         IsCakePickUp = false;
         ObjectPoolManager.Instance.ObjPush("Ant_Enemy", gameObject);
