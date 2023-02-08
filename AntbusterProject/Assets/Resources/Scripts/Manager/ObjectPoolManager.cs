@@ -23,6 +23,7 @@ public class ObjectPoolManager : SingletonBase<ObjectPoolManager>
             parent = parent.gameObject.FindChildObj("PlayGround").transform;
             parent = parent.gameObject.FindChildObj("Enemys").transform;
             ObjPoolCreator(objKeys[0], parent, objvalues[0], objCounts[0]);
+            ObjPoolCreator(objKeys[1], parent, objvalues[1], objCounts[1]);
         }
     }
     private void ObjPoolCreator(string objKey_, Transform parent_, GameObject obj_, int objCount_)

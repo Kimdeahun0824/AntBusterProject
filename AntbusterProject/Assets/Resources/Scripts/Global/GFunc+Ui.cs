@@ -24,4 +24,9 @@ public static partial class GFunc
         Image image = obj_.GetComponent<Image>();
         image.fillAmount = amount;
     }
+
+    public static void ImageActive(this GameObject obj_, bool active)
+    {
+        obj_.GetComponent<Image>().enabled = active;
+    }
 }

@@ -14,8 +14,7 @@ public class Enemy_Ant : MonoBehaviour
     public Transform targetAntTunnelTransform = default;
     public Vector3 targetPos = default;
     private GameObject pickUpCakeObj = default;
-
-
+    private GameObject HpBar = default;
     public bool IsCakePickUp = default;
     public bool randomMove = default;
     private bool Is_Die = default;
@@ -28,7 +27,13 @@ public class Enemy_Ant : MonoBehaviour
         rootObj.FindChildObj("PlayGround");
         targetCakeTransform = GFunc.FindChildObj(rootObj, "CakeObj").transform;
         targetAntTunnelTransform = GFunc.FindChildObj(rootObj, "AntTunnel").transform;
+        HpBar = transform.GetChild(2).gameObject;
+    }
+    public void OnEnable()
+    {
         StartCoroutine(RandMoveTargetMove_Chance());
+        currentHp = maxHp;
+        HpBarFilled();
     }
 
     public void Update()
@@ -44,9 +49,9 @@ public class Enemy_Ant : MonoBehaviour
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPos, moveSpeed * Time.deltaTime);
         transform.LookAt2D(targetPos, rotationSpeed);
     }
-    public void HpBar()
+    public void HpBarFilled()
     {
-
+        HpBar.SetFilledAmount((float)currentHp / maxHp);
     }
 
     IEnumerator RandMoveTargetMove_Chance()
@@ -138,5 +143,26 @@ public class Enemy_Ant : MonoBehaviour
         {
             targetPos = new Vector3(currentPos.x - 40, currentPos.y + 40, 0);
         }
+    }
+
+    public void Hit(int damage)
+    {
+        if (currentHp - damage <= 0)
+        {
+            currentHp = 0;
+            Die();
+        }
+        else
+        {
+            currentHp -= damage;
+        }
+        HpBarFilled();
+    }
+
+    public void Die()
+    {
+        pickUpCakeObj.SetActive(false);
+        IsCakePickUp = false;
+        ObjectPoolManager.Instance.ObjPush("Ant_Enemy", gameObject);
     }
 }

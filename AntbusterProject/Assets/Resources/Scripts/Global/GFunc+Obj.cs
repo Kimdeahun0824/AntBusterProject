@@ -131,4 +131,14 @@ public static partial class GFunc
         transform.rotation = rotation;
 
     }       // LookAt()
+
+    public static void SetRectSizeDelta(this GameObject obj_, float x, float y)
+    {
+        obj_.GetRect().sizeDelta = new Vector2(x, y);
+    }
+
+    public static void SetCircleColliderSize(this GameObject obj_, float radius)
+    {
+        obj_.GetComponent<CircleCollider2D>().radius = radius;
+    }
 }
