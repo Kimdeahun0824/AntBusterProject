@@ -8,7 +8,7 @@ public class CountText : MonoBehaviour
 
     void Start()
     {
-        count = 2;
+        count = 10;
         StartCoroutine(StartCount());
     }
 

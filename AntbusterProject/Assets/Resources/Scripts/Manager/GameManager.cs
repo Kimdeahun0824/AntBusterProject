@@ -20,13 +20,12 @@ public class GameManager : SingletonBase<GameManager>
     new void Awake()
     {
         base.Awake();
-
+        GFunc.sceneLoaded(OnSceneLoaded);
         init();
     }
 
     public void init()
     {
-        GFunc.sceneLoaded(OnSceneLoaded);
         cakeLife = 8;
         //ants = new List<GameObject>();
     }
