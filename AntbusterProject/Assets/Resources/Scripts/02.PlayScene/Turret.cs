@@ -5,7 +5,6 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private GameObject AttackRangeObject = default;
-    private Transform Cannon = default;
     public List<Transform> targets = default;
     public Transform target = default;
     public float frequency = default;
@@ -20,7 +19,6 @@ public class Turret : MonoBehaviour
         AttackRangeObject.SetRectSizeDelta(attackRange * 2, attackRange * 2);
         AttackRangeObject.SetCircleColliderSize(attackRange);
         targets = new List<Transform>();
-        Cannon = transform.GetChild(1);
         StartCoroutine(Shoot());
     }
     void Update()

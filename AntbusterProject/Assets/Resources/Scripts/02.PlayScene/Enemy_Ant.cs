@@ -51,6 +51,7 @@ public class Enemy_Ant : MonoBehaviour
     }
     public void HpBarFilled()
     {
+        if (HpBar == null) return;
         HpBar.SetFilledAmount((float)currentHp / maxHp);
     }
 

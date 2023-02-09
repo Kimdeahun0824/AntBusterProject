@@ -23,6 +23,10 @@ public class ObjectPoolManager : SingletonBase<ObjectPoolManager>
             parent = parent.gameObject.FindChildObj("PlayGround").transform;
             parent = parent.gameObject.FindChildObj("Enemys").transform;
             ObjPoolCreator(objKeys[0], parent, objvalues[0], objCounts[0]);
+
+            parent = GFunc.GetRootObj("GameObjs").transform;
+            parent = parent.gameObject.FindChildObj("PlayGround").transform;
+            parent = parent.gameObject.FindChildObj("Bullets").transform;
             ObjPoolCreator(objKeys[1], parent, objvalues[1], objCounts[1]);
         }
     }
